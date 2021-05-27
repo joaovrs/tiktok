@@ -6,17 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slide Stories</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script>
+    function GetURLParameter(sParam) {
+      var sPageURL = window.location.search.substring(1);
+      var sURLVariables = sPageURL.split('&');
+      for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+          return sParameterName[1];
+        }
+      }
+    }
+
+    listingId = GetURLParameter("listingId")
+
+const url='https://api.loft.com.br/listings/' + listingId;
+fetch(url).then(function(response) {
+  return response.json();
+}).then(function(data) {
+   photo_banner = "https://content.loft.com.br/homes/" + listingId + "/desktop_banner.jpg"
+  photo_living = "https://content.loft.com.br/homes/" + listingId + "/mobile_" + data.images.living[0]
+     photo_kitchen = "https://content.loft.com.br/homes/" + listingId + "/mobile_" + data.images.kitchen[0]
+     photo_bathroom = "https://content.loft.com.br/homes/" + listingId + "/mobile_" + data.images.bathroom[0]
+     if(data.images.facade) {
+       photo_facade = "https://content.loft.com.br/homes/" + listingId + "/mobile_" + data.images.facade[0]
+     }
+    photo_master_bedroom = "https://content.loft.com.br/homes/" + listingId + "/mobile_" + data.images.master_bedroom[0]
+    if(data.hasFloorplan) {
+      floorPlan = "https://content.loft.com.br/homes/" + listingId + "/desktop_floorplan.jpg"
+      document.getElementById("imgMoving_5").src=floorPlan
+    }
+    document.getElementById("imgMoving_0").src=photo_banner
+    document.getElementById("imgMoving_1").src=photo_living
+    document.getElementById("imgMoving_2").src=photo_master_bedroom
+    document.getElementById("imgMoving_3").src=photo_kitchen
+    document.getElementById("imgMoving_4").src=photo_bathroom
+    document.getElementById("imgMoving_5").src=photo_facade
+console.log(data);
+});
+
+  </script>
 </head>
+
+
 
 <body>
 
   <div data-slide="slide" class="slide">
     <div class="slide-items">
-      <img src="https://content.loft.com.br/homes/14zrx8a/desktop_banner.jpg" style="height:500px;overflow:hidden;" alt="Img 1" id="imgMoving_0">
-      <img src="https://content.loft.com.br/homes/14zrx8a/desktop_living11.jpg" alt="Img 2" id="imgMoving_1" style="height:500px;overflow:hidden;">
-      <img src="https://content.loft.com.br/homes/14zrx8a/desktop_master_bedroom15.jpg" alt="Img 3" id="imgMoving_2" style="height:500px;overflow:hidden;">
-      <img src="https://content.loft.com.br/homes/14zrx8a/desktop_bathroom00.jpg" alt="Img 4" id="imgMoving_3" style="height:500px;overflow:hidden;">
-      <img src="https://content.loft.com.br/homes/14zrx8a/desktop_facade07.jpg" alt="Img 5" id="imgMoving_4" style="height:500px;overflow:hidden;">
+      <img src="" style="overflow:hidden;" alt="Img 1" id="imgMoving_0">
+      <img src="" alt="Img 2" id="imgMoving_1" style="height:500px;overflow:hidden;">
+      <img src="" alt="Img 3" id="imgMoving_2" style="height:500px;overflow:hidden;">
+      <img src="" alt="Img 4" id="imgMoving_3" style="height:500px;overflow:hidden;">
+      <img src="" alt="Img 5" id="imgMoving_4" style="height:500px;overflow:hidden;">
+      <img src="" alt="Img 6" id="imgMoving_5" style="height:500px;overflow:hidden;">
 
     </div>
     <nav class="slide-nav">
@@ -25,8 +69,9 @@
       <button class="slide-next">Próximo</button>
     </nav>
   </div>
-
-  <script src="./slide-stories.js"></script>
+<div>
+  <a href="file:///C:/Users/joaov/Desktop/Stories/slide-stories-master/index.html?listingId=1j2w9oq">Ver próximo</a>
+</div>
 </body>
-
+  <script src="./slide-stories.js"></script>
 </html>

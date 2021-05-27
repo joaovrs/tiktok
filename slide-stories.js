@@ -50,6 +50,7 @@ class SlideStories {
     var windowWidth = window.innerWidth;
     console.log("imgMoving_" + index)
     var imgMoving = document.getElementById("imgMoving_" + index);
+    console.log(imgMoving.width)
     var step = (imgMoving.width - 380)/250;
     imgMoving.style.marginLeft = "0px";
     console.log(step)
@@ -79,6 +80,5 @@ class SlideStories {
 }
 var myVar
 window.onload = (event) => {
-
 new SlideStories('slide');
 }
