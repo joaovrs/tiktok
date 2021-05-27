@@ -50,8 +50,7 @@ class SlideStories {
     var windowWidth = window.innerWidth;
     console.log("imgMoving_" + index)
     var imgMoving = document.getElementById("imgMoving_" + index);
-    console.log(imgMoving.width)
-    var step = (imgMoving.width - 380)/250;
+    var step = (imgMoving.width - windowWidth)/250;
     imgMoving.style.marginLeft = "0px";
     console.log(step)
     var i = 0;

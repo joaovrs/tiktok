@@ -6,8 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slide Stories</title>
   <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   <script>
+      function addIndex(src,id,element) {
+  var imgDiv = document.createElement('img');
+  imgDiv.src = src
+  imgDiv.id = "imgMoving_" + id
+  imgDiv.style = "height:500px;overflow:hidden;"
+  element.appendChild(imgDiv)
+}
     function GetURLParameter(sParam) {
       var sPageURL = window.location.search.substring(1);
       var sURLVariables = sPageURL.split('&');
@@ -25,8 +35,8 @@ const url='https://api.loft.com.br/listings/' + listingId;
 fetch(url).then(function(response) {
   return response.json();
 }).then(function(data) {
-   photo_banner = "https://content.loft.com.br/homes/" + listingId + "/desktop_banner.jpg"
-  photo_living = "https://content.loft.com.br/homes/" + listingId + "/mobile_" + data.images.living[0]
+    photo_banner = "https://content.loft.com.br/homes/" + listingId + "/desktop_banner.jpg"
+     photo_living = "https://content.loft.com.br/homes/" + listingId + "/mobile_" + data.images.living[0]
      photo_kitchen = "https://content.loft.com.br/homes/" + listingId + "/mobile_" + data.images.kitchen[0]
      photo_bathroom = "https://content.loft.com.br/homes/" + listingId + "/mobile_" + data.images.bathroom[0]
      if(data.images.facade) {
@@ -39,39 +49,85 @@ fetch(url).then(function(response) {
     }
     document.getElementById("imgMoving_0").src=photo_banner
     document.getElementById("imgMoving_1").src=photo_living
-    document.getElementById("imgMoving_2").src=photo_master_bedroom
-    document.getElementById("imgMoving_3").src=photo_kitchen
-    document.getElementById("imgMoving_4").src=photo_bathroom
-    document.getElementById("imgMoving_5").src=photo_facade
-console.log(data);
+
 });
+
 
   </script>
 </head>
 
 
 
-<body>
-
+<body style="font-family: HelveticaNowText;">
+</body>
   <div data-slide="slide" class="slide">
-    <div class="slide-items">
-      <img src="" style="overflow:hidden;" alt="Img 1" id="imgMoving_0">
-      <img src="" alt="Img 2" id="imgMoving_1" style="height:500px;overflow:hidden;">
-      <img src="" alt="Img 3" id="imgMoving_2" style="height:500px;overflow:hidden;">
-      <img src="" alt="Img 4" id="imgMoving_3" style="height:500px;overflow:hidden;">
-      <img src="" alt="Img 5" id="imgMoving_4" style="height:500px;overflow:hidden;">
-      <img src="" alt="Img 6" id="imgMoving_5" style="height:500px;overflow:hidden;">
 
+    <div class="slide-items stories" id="slide_fotos">
+      <div>
+        <img src="https://content.loft.com.br/homes/1sqh807/desktop_banner.jpg" alt="Img 0" id="imgMoving_0" style="height:100vh;overflow:hidden;">
+
+        <div class="divStories"></div>
+                            <p class="priceText">R$172.392</p>
+        <div class="container">
+
+         <div class="rowIcon row " style="color:#fff;">
+           <div class="col-3 colIcon"><i class="fa fa-arrows-alt" style="font-size:20px"></i><span class="fontIcon">100m²</span></div>
+            <div class="col-3 colIcon"><i class="fa fa-car" style="font-size:20px"></i><span class="fontIcon">2 vag.</span></div>
+           <div class="col-3 colIcon"><i class="fa fa-bed" style="font-size:20px"></i><span class="fontIcon">2 quar</span></div>
+           <div class="col-3 colIcon "><i class="fa fa-bath " style="font-size:20px"></i><span class="fontIcon">3 ban.</span></div>
+         </div>
+          <div class="divide"></div>
+          <div class="dislikeButton"><i class="fa fa-thumbs-down dislikeIcon" style="font-size:20px"></i></div>
+            <div class="likeButton"><i class="fa fa-heart likeIcon" style="font-size:20px"></i></div>
+            <div class="previousProperty"><i class="fa fa-angle-left " style="font-size:20px"></i></div>
+                        <div class="nextProperty"><i class="fa fa-angle-right " style="font-size:20px"></i></div>
+                        <div class="previousPropertyText">Imóvel anterior</div>
+                        <div class="nextPropertyText">Próximo imóvel</div>
+           </div>
+      </div>
+        <div>
+        <img src="https://content.loft.com.br/homes/1sqh807/desktop_banner.jpg" alt="Img 0" id="imgMoving_1" style="height:100vh;overflow:hidden;">
+
+        <div class="divStories"></div>
+                            <p class="priceText">R$172.392</p>
+        <div class="container">
+
+         <div class="rowIcon row " style="color:#fff;">
+           <div class="col-3 colIcon"><i class="fa fa-arrows-alt" style="font-size:20px"></i><span class="fontIcon">100m²</span></div>
+            <div class="col-3 colIcon"><i class="fa fa-car" style="font-size:20px"></i><span class="fontIcon">2 vag.</span></div>
+           <div class="col-3 colIcon"><i class="fa fa-bed" style="font-size:20px"></i><span class="fontIcon">2 quar</span></div>
+           <div class="col-3 colIcon "><i class="fa fa-bath " style="font-size:20px"></i><span class="fontIcon">3 ban.</span></div>
+         </div>
+          <div class="divide"></div>
+          <div class="dislikeButton"><i class="fa fa-thumbs-down dislikeIcon" style="font-size:20px"></i></div>
+            <div class="likeButton"><i class="fa fa-heart likeIcon" style="font-size:20px"></i></div>
+            <div class="previousProperty"><i class="fa fa-angle-left " style="font-size:20px"></i></div>
+                        <div class="nextProperty"><i class="fa fa-angle-right " style="font-size:20px"></i></div>
+                        <div class="previousPropertyText">Imóvel anterior</div>
+                        <div class="nextPropertyText">Próximo imóvel</div>
+           </div>
+      </div>
     </div>
+
     <nav class="slide-nav">
       <div class="slide-thumb"></div>
       <button class="slide-prev">Anterior</button>
       <button class="slide-next">Próximo</button>
     </nav>
   </div>
+  <div>
+  <a href="file:///C:/Users/joaov/Desktop/Stories/slide-stories-master/index.html?listingId=1j2w9oq">Ver anterior</a>
+</div>
 <div>
   <a href="file:///C:/Users/joaov/Desktop/Stories/slide-stories-master/index.html?listingId=1j2w9oq">Ver próximo</a>
 </div>
+  <div>
+  <a href="file:///C:/Users/joaov/Desktop/Stories/slide-stories-master/index.html?listingId=1j2w9oq">Não gostei</a>
+</div>
+  <div>
+  <a href="file:///C:/Users/joaov/Desktop/Stories/slide-stories-master/index.html?listingId=1j2w9oq">Gostei</a>
+</div>
+
 </body>
   <script src="./slide-stories.js"></script>
 </html>
